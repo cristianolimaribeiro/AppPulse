@@ -195,11 +195,13 @@ const ApplicationDetails: React.FC = () => {
                     <stop offset="95%" stopColor="#2563eb" stopOpacity={0}/>
                   </linearGradient>
                 </defs>
-                <CartesianGrid strokeDasharray="3 3" vertical={false} stroke="#f1f5f9" />
-                <XAxis dataKey="time" fontSize={10} axisLine={false} tickLine={false} tick={{ fill: '#64748b' }} />
-                <YAxis fontSize={10} unit="ms" axisLine={false} tickLine={false} tick={{ fill: '#64748b' }} />
+                <CartesianGrid strokeDasharray="3 3" vertical={false} stroke="var(--border)" />
+                <XAxis dataKey="time" fontSize={10} axisLine={false} tickLine={false} tick={{ fill: 'var(--text-dim)' }} />
+                <YAxis fontSize={10} unit="ms" axisLine={false} tickLine={false} tick={{ fill: 'var(--text-dim)' }} />
                 <Tooltip 
-                  contentStyle={{ borderRadius: '8px', border: 'none', boxShadow: '0 4px 12px rgba(0,0,0,0.1)' }}
+                  contentStyle={{ backgroundColor: 'var(--bg-card)', border: '1px solid var(--border-bright)', borderRadius: '8px', boxShadow: 'var(--shadow-card)' }}
+                  itemStyle={{ color: 'var(--text-main)' }}
+                  labelStyle={{ color: 'var(--text-muted)' }}
                 />
                 <Area type="monotone" dataKey="ms" stroke="#2563eb" fillOpacity={1} fill="url(#colorMs)" strokeWidth={2} />
               </AreaChart>
