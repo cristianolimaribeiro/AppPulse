@@ -23,9 +23,9 @@
 }
 
 .active-maint {
-  background: #e0e7ff !important;
-  color: #3730a3 !important;
-  border-color: #3730a3 !important;
+  background: var(--status-maintenance) !important;
+  color: white !important;
+  border-color: var(--status-maintenance) !important;
 }
 
 .details-grid {
@@ -52,7 +52,7 @@
   justify-content: space-between;
   align-items: baseline;
   padding-bottom: 8px;
-  border-bottom: 1px solid #f1f5f9;
+  border-bottom: 1px solid var(--border);
 }
 
 .info-item .label {
@@ -106,11 +106,11 @@
 
 .tab-btn:hover {
   color: var(--text-main);
-  background: #f1f5f9;
+  background: rgba(255, 255, 255, 0.03);
 }
 
 .tab-btn.active {
-  background: white;
+  background: var(--bg-card);
   border-color: var(--border);
   color: var(--primary);
   font-weight: 600;
