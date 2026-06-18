@@ -350,3 +350,42 @@ table tr:hover td {
   }
 }
 
+/* Shared Filters & Search Input */
+.filters-bar {
+  display: flex;
+  gap: 16px;
+  margin-bottom: 24px;
+  padding: 12px 24px !important;
+}
+
+.search-input {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid var(--border);
+  padding: 0 12px;
+  border-radius: var(--radius-lg);
+}
+
+.search-input input {
+  background: none;
+  border: none;
+  width: 100%;
+  padding: 8px 0;
+  font-size: 14px;
+  color: var(--text-main);
+  outline: none;
+}
+
+.filters-bar select {
+  width: 200px;
+  padding: 8px 12px;
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  background: var(--bg-card);
+  color: var(--text-main);
+  outline: none;
+}
+

@@ -14,39 +14,6 @@
   color: var(--text-muted);
 }
 
-.filters-bar {
-  display: flex;
-  gap: 16px;
-  margin-bottom: 24px;
-  padding: 12px 24px !important;
-}
-
-.search-input {
-  flex: 1;
-  display: flex;
-  align-items: center;
-  gap: 10px;
-  background: #f1f5f9;
-  padding: 0 12px;
-  border-radius: 6px;
-}
-
-.search-input input {
-  background: none;
-  border: none;
-  width: 100%;
-  padding: 8px 0;
-  font-size: 14px;
-}
-
-.filters-bar select {
-  width: 200px;
-  padding: 8px 12px;
-  border: 1px solid var(--border);
-  border-radius: 6px;
-  background: white;
-}
-
 .app-name-cell {
   display: flex;
   flex-direction: column;
@@ -84,7 +51,7 @@
 }
 
 .btn-icon:hover:not(:disabled) {
-  background: #f1f5f9;
+  background: rgba(255, 255, 255, 0.05);
   color: var(--primary);
 }
 
