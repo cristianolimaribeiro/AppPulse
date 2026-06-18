@@ -3,17 +3,18 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  background: linear-gradient(135deg, #f8fafc 0%, #e2e8f0 100%);
+  background: radial-gradient(circle at center, var(--bg-card) 0%, var(--bg-main) 100%);
   padding: 20px;
 }
 
 .login-card {
   width: 100%;
   max-width: 400px;
-  background: white;
-  border-radius: 12px;
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-xl);
   padding: 40px;
-  box-shadow: 0 10px 25px rgba(0,0,0,0.05);
+  box-shadow: var(--shadow-card);
 }
 
 .login-header {
@@ -42,10 +43,11 @@
   display: flex;
   align-items: center;
   gap: 8px;
-  background: #fee2e2;
-  color: #b91c1c;
+  background: rgba(255, 82, 82, 0.1);
+  color: var(--status-offline);
+  border: 1px solid var(--status-offline-glow);
   padding: 12px;
-  border-radius: 6px;
+  border-radius: var(--radius-lg);
   font-size: 14px;
   margin-bottom: 20px;
 }
