@@ -287,7 +287,15 @@ const ApplicationDetails: React.FC = () => {
                       <td>{h.reason || 'Alteração detectada pelo monitor'}</td>
                     </tr>
                   ))}
-                  {history.length === 0 && <tr><td colSpan={4} className="empty-state">Sem histórico de mudanças registrado.</td></tr>}
+                  {history.length === 0 && (
+                    <tr>
+                      <td colSpan={4}>
+                        <div className="empty-state">
+                          <p>Sem histórico de mudanças registrado.</p>
+                        </div>
+                      </td>
+                    </tr>
+                  )}
                 </tbody>
               </table>
             </div>
@@ -317,7 +325,15 @@ const ApplicationDetails: React.FC = () => {
                       </td>
                     </tr>
                   ))}
-                  {incidents.length === 0 && <tr><td colSpan={5} className="empty-state">Nenhum incidente registrado para este serviço.</td></tr>}
+                  {incidents.length === 0 && (
+                    <tr>
+                      <td colSpan={5}>
+                        <div className="empty-state">
+                          <p>Nenhum incidente registrado para este serviço.</p>
+                        </div>
+                      </td>
+                    </tr>
+                  )}
                 </tbody>
               </table>
             </div>

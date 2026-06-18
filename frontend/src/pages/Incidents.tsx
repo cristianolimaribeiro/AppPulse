@@ -108,7 +108,11 @@ const Incidents: React.FC = () => {
             ))}
             {filteredIncidents.length === 0 && (
               <tr>
-                <td colSpan={6} className="empty-state">Nenhum incidente encontrado</td>
+                <td colSpan={6}>
+                  <div className="empty-state">
+                    <p>Nenhum incidente encontrado</p>
+                  </div>
+                </td>
               </tr>
             )}
           </tbody>
