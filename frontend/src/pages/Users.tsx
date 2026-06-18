@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import api from '../services/api';
 import { User } from '../types';
 import { UserPlus, ToggleLeft, ToggleRight, Edit } from 'lucide-react';
+import './Users.css';
 
 const Users: React.FC = () => {
   const [users, setUsers] = useState<User[]>([]);
