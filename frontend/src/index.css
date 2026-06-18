@@ -3,6 +3,11 @@ html {
   scrollbar-color: var(--border-bright) var(--bg-main);
 }
 
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
 :root {
   color-scheme: dark;
   --header-height: 72px;
@@ -76,9 +81,18 @@ body {
 }
 
 .btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  padding: 10px 20px;
+  font-size: 14px;
   border-radius: var(--radius-lg);
   font-weight: 600;
   letter-spacing: 0.01em;
+  border: 1px solid transparent;
+  cursor: pointer;
+  text-decoration: none;
   transition: var(--transition-smooth);
 }
 
@@ -203,6 +217,18 @@ select option {
 
 .btn-outline:hover {
   background: var(--border);
+}
+
+.btn-success {
+  background: rgba(0, 230, 118, 0.05);
+  border: 1px solid var(--status-online);
+  color: var(--status-online);
+}
+
+.btn-success:hover {
+  background: var(--status-online-glow);
+  transform: scale(1.02);
+  box-shadow: 0 4px 14px 0 var(--status-online-glow);
   border-color: var(--text-dim);
   color: white;
 }

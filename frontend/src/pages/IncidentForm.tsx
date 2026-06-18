@@ -141,7 +141,7 @@ const IncidentForm: React.FC = () => {
 
           <div style={{ marginTop: '24px', display: 'flex', justifyContent: 'space-between' }}>
             {isEdit && formData.status !== 'resolved' && (
-              <button type="button" className="btn btn-outline" style={{ color: '#166534', borderColor: '#166534' }} onClick={handleResolve}>
+              <button type="button" className="btn btn-success" onClick={handleResolve}>
                 <CheckCircle size={18} />
                 Resolver Incidente
               </button>
