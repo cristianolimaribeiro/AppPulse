@@ -1,0 +1,17 @@
+# Dependencies
+node_modules/
+
+# Build
+dist/
+dist-ssr
+*.local
+
+# Env
+.env
+.env*.local
+
+# Logs
+*.log
+
+# Vite
+vite.config.ts.timestamp-*

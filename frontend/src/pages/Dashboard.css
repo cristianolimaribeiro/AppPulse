@@ -1,0 +1,156 @@
+.dashboard-header {
+  margin-bottom: 40px;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+}
+
+.dashboard-header h1 {
+  font-size: 36px;
+  color: white;
+  margin-bottom: 4px;
+}
+
+.dashboard-header p {
+  color: var(--text-muted);
+  font-size: 16px;
+  font-weight: 500;
+}
+
+.stats-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 24px;
+  margin-bottom: 40px;
+}
+
+.stat-card {
+  background: var(--bg-card);
+  padding: 32px;
+  border-radius: var(--radius-xl);
+  border: 1px solid var(--border);
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  position: relative;
+}
+
+.stat-icon {
+  width: 52px;
+  height: 52px;
+  border-radius: 14px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 24px;
+}
+
+.stat-icon svg { width: 28px; height: 28px; }
+
+.stat-icon.online { background: var(--status-online-glow); color: var(--status-online); }
+.stat-icon.degraded { background: var(--status-degraded-glow); color: var(--status-degraded); }
+.stat-icon.offline { background: var(--status-offline-glow); color: var(--status-offline); }
+.stat-icon.incidents { background: rgba(255, 255, 255, 0.05); color: white; }
+
+.stat-value {
+  font-size: 42px;
+  font-weight: 800;
+  line-height: 1;
+}
+
+.stat-label {
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--text-muted);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.charts-grid {
+  display: grid;
+  grid-template-columns: 1.5fr 1fr;
+  gap: 24px;
+  margin-bottom: 40px;
+}
+
+.chart-card {
+  padding: 32px;
+}
+
+.chart-card h3 {
+  color: white;
+  margin-bottom: 32px;
+  font-size: 20px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.chart-card.highlight {
+  background: radial-gradient(circle at top right, var(--primary) -20%, var(--bg-card) 60%);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+
+.big-metric {
+  margin: 20px 0;
+}
+
+.metric-value {
+  font-size: 64px;
+  font-weight: 800;
+  background: linear-gradient(to bottom, #fff, var(--primary));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.metric-unit {
+  font-size: 24px;
+  font-weight: 700;
+  color: var(--primary);
+  margin-left: 8px;
+}
+
+.dashboard-bottom-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(500px, 1fr));
+  gap: 24px;
+}
+
+.card-header {
+  margin-bottom: 24px;
+}
+
+.btn-text {
+  color: var(--primary);
+  font-weight: 700;
+  text-transform: uppercase;
+  font-size: 12px;
+  letter-spacing: 0.1em;
+}
+
+table th {
+  background: transparent;
+  color: var(--text-dim);
+  padding: 16px 20px;
+}
+
+table td {
+  padding: 20px;
+  border-bottom: 1px solid var(--border);
+}
+
+.app-name {
+  color: white;
+  font-weight: 700;
+  font-size: 15px;
+}
+
+@media (max-width: 1024px) {
+  .charts-grid {
+    grid-template-columns: 1fr;
+  }
+}

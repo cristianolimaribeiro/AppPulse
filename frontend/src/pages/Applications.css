@@ -1,0 +1,98 @@
+.page-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 24px;
+}
+
+.page-header h1 {
+  font-size: 24px;
+  font-weight: 700;
+}
+
+.page-header p {
+  color: var(--text-muted);
+}
+
+.filters-bar {
+  display: flex;
+  gap: 16px;
+  margin-bottom: 24px;
+  padding: 12px 24px !important;
+}
+
+.search-input {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  background: #f1f5f9;
+  padding: 0 12px;
+  border-radius: 6px;
+}
+
+.search-input input {
+  background: none;
+  border: none;
+  width: 100%;
+  padding: 8px 0;
+  font-size: 14px;
+}
+
+.filters-bar select {
+  width: 200px;
+  padding: 8px 12px;
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  background: white;
+}
+
+.app-name-cell {
+  display: flex;
+  flex-direction: column;
+}
+
+.app-name {
+  font-weight: 600;
+  color: var(--text-main);
+}
+
+.app-url {
+  font-size: 12px;
+  color: var(--text-muted);
+}
+
+.env-tag {
+  text-transform: capitalize;
+  font-size: 13px;
+}
+
+.actions-cell {
+  display: flex;
+  gap: 8px;
+}
+
+.btn-icon {
+  background: none;
+  color: var(--text-muted);
+  padding: 6px;
+  border-radius: 4px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.2s;
+}
+
+.btn-icon:hover:not(:disabled) {
+  background: #f1f5f9;
+  color: var(--primary);
+}
+
+.btn-icon:disabled {
+  opacity: 0.3;
+  cursor: not-allowed;
+}
+
+.text-primary {
+  color: var(--primary);
+}

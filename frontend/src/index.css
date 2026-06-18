@@ -1,0 +1,121 @@
+:root {
+  /* Ultra Modern Dark Palette - Reference: Dribbble Modern Incident Dashboard */
+  --bg-main: #0a0b10;
+  --bg-card: #15171e;
+  --bg-sidebar: #0f1117;
+  --bg-header: rgba(15, 17, 23, 0.8);
+  
+  --primary: #3d5afe;
+  --primary-glow: rgba(61, 90, 254, 0.3);
+  --primary-hover: #536dfe;
+  
+  --text-main: #ffffff;
+  --text-muted: #94a3b8;
+  --text-dim: #64748b;
+  
+  --border: rgba(255, 255, 255, 0.05);
+  --border-bright: rgba(255, 255, 255, 0.1);
+  
+  /* Status Colors with Glow */
+  --status-online: #00e676;
+  --status-online-glow: rgba(0, 230, 118, 0.2);
+  --status-degraded: #ffab00;
+  --status-degraded-glow: rgba(255, 171, 0, 0.2);
+  --status-offline: #ff5252;
+  --status-offline-glow: rgba(255, 82, 82, 0.2);
+  --status-maintenance: #7c4dff;
+  --status-unknown: #455a64;
+
+  /* Elevation & Effects */
+  --shadow-card: 0 8px 32px 0 rgba(0, 0, 0, 0.8);
+  --radius-xl: 20px;
+  --radius-lg: 12px;
+  --glass: blur(12px) saturate(180%);
+  
+  --transition-smooth: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: 'Inter', system-ui, -apple-system, sans-serif;
+  background-color: var(--bg-main);
+  color: var(--text-main);
+  -webkit-font-smoothing: antialiased;
+  overflow-x: hidden;
+}
+
+/* Base Component Overrides */
+.card {
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-xl);
+  padding: 24px;
+  box-shadow: var(--shadow-card);
+  transition: var(--transition-smooth);
+  position: relative;
+  overflow: hidden;
+}
+
+.card:hover {
+  border-color: var(--border-bright);
+  transform: translateY(-4px);
+}
+
+.btn {
+  border-radius: var(--radius-lg);
+  font-weight: 600;
+  letter-spacing: 0.01em;
+  transition: var(--transition-smooth);
+}
+
+.btn-primary {
+  background: var(--primary);
+  color: white;
+  box-shadow: 0 4px 14px 0 var(--primary-glow);
+}
+
+.btn-primary:hover {
+  background: var(--primary-hover);
+  box-shadow: 0 6px 20px 0 var(--primary-glow);
+  transform: scale(1.02);
+}
+
+.badge {
+  font-weight: 600;
+  border-radius: 8px;
+  padding: 6px 12px;
+  backdrop-filter: var(--glass);
+}
+
+.badge-online { background: var(--status-online-glow); color: var(--status-online); border: 1px solid var(--status-online); }
+.badge-degraded { background: var(--status-degraded-glow); color: var(--status-degraded); border: 1px solid var(--status-degraded); }
+.badge-offline { background: var(--status-offline-glow); color: var(--status-offline); border: 1px solid var(--status-offline); }
+
+/* Typography */
+h1 { font-size: 32px; font-weight: 800; letter-spacing: -0.02em; }
+h2 { font-size: 24px; font-weight: 700; }
+h3 { font-size: 18px; font-weight: 600; color: var(--text-muted); }
+
+/* Recharts Customization Styles */
+.recharts-cartesian-grid-horizontal line,
+.recharts-cartesian-grid-vertical line {
+  stroke: var(--border);
+}
+
+.recharts-tooltip-wrapper .recharts-default-tooltip {
+  background-color: var(--bg-card) !important;
+  border: 1px solid var(--border-bright) !important;
+  border-radius: 12px !important;
+  box-shadow: var(--shadow-card) !important;
+}
+
+/* Custom Scrollbar for Dark Theme */
+::-webkit-scrollbar { width: 6px; }
+::-webkit-scrollbar-track { background: var(--bg-main); }
+::-webkit-scrollbar-thumb { background: var(--border-bright); border-radius: 10px; }
+::-webkit-scrollbar-thumb:hover { background: var(--text-dim); }

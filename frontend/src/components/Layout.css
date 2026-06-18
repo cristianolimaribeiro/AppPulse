@@ -1,0 +1,153 @@
+.layout {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  background-color: var(--bg-main);
+}
+
+.header {
+  height: var(--header-height);
+  background: var(--bg-header);
+  backdrop-filter: var(--glass);
+  border-bottom: 1px solid var(--border);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 32px;
+  position: sticky;
+  top: 0;
+  z-index: 100;
+}
+
+.header-left {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+
+.logo {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  font-weight: 800;
+  font-size: 22px;
+  color: var(--text-main);
+}
+
+.logo-icon {
+  color: var(--primary);
+  filter: drop-shadow(0 0 8px var(--primary-glow));
+}
+
+.header-right {
+  display: flex;
+  align-items: center;
+  gap: 24px;
+}
+
+.user-info {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+}
+
+.user-name {
+  font-weight: 600;
+  font-size: 14px;
+  color: var(--text-main);
+}
+
+.user-role {
+  font-size: 10px !important;
+  color: var(--text-dim) !important;
+  background: var(--border) !important;
+  border: none !important;
+  margin-top: 2px;
+}
+
+.btn-logout {
+  background: var(--border);
+  color: var(--text-muted);
+  display: flex;
+  align-items: center;
+  padding: 10px;
+  border-radius: 10px;
+  transition: var(--transition-smooth);
+}
+
+.btn-logout:hover {
+  background: var(--status-offline-glow);
+  color: var(--status-offline);
+}
+
+.sidebar {
+  width: var(--sidebar-width);
+  background: var(--bg-sidebar);
+  border-right: 1px solid var(--border);
+  padding: 32px 16px;
+  position: sticky;
+  top: var(--header-height);
+  height: calc(100vh - var(--header-height));
+}
+
+.nav {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.nav-item {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  padding: 14px 16px;
+  border-radius: 12px;
+  color: var(--text-muted);
+  font-weight: 600;
+  font-size: 15px;
+  transition: var(--transition-smooth);
+}
+
+.nav-item:hover {
+  background: var(--border);
+  color: var(--text-main);
+  transform: translateX(4px);
+}
+
+.nav-item.active {
+  background: var(--primary);
+  color: white;
+  box-shadow: 0 4px 12px var(--primary-glow);
+}
+
+.content {
+  flex: 1;
+  background: var(--bg-main);
+  position: relative;
+}
+
+/* Background Decorative Blobs - reference style */
+.content::before {
+  content: '';
+  position: fixed;
+  top: -10%;
+  right: -5%;
+  width: 400px;
+  height: 400px;
+  background: var(--primary-glow);
+  filter: blur(120px);
+  border-radius: 50%;
+  z-index: 0;
+  pointer-events: none;
+}
+
+@media (max-width: 768px) {
+  .sidebar {
+    position: fixed;
+    left: -100%;
+    z-index: 1000;
+    transition: left 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    background: var(--bg-sidebar);
+    backdrop-filter: blur(20px);
+  }
+}
