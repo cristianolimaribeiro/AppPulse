@@ -19,6 +19,17 @@ const Layout: React.FC = () => {
   const navigate = useNavigate();
   const location = useLocation();
 
+  React.useEffect(() => {
+    if (isSidebarOpen) {
+      document.body.style.overflow = 'hidden';
+    } else {
+      document.body.style.overflow = '';
+    }
+    return () => {
+      document.body.style.overflow = '';
+    };
+  }, [isSidebarOpen]);
+
   const handleLogout = () => {
     logout();
     navigate('/login');

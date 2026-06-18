@@ -1,4 +1,7 @@
 :root {
+  --header-height: 72px;
+  --sidebar-width: 260px;
+
   /* Ultra Modern Dark Palette - Reference: Dribbble Modern Incident Dashboard */
   --bg-main: #0a0b10;
   --bg-card: #15171e;
@@ -95,6 +98,7 @@ body {
 .badge-online { background: var(--status-online-glow); color: var(--status-online); border: 1px solid var(--status-online); }
 .badge-degraded { background: var(--status-degraded-glow); color: var(--status-degraded); border: 1px solid var(--status-degraded); }
 .badge-offline { background: var(--status-offline-glow); color: var(--status-offline); border: 1px solid var(--status-offline); }
+.badge-unknown { background: rgba(255, 255, 255, 0.05); color: var(--status-unknown); border: 1px solid var(--border-bright); }
 
 /* Typography */
 h1 { font-size: 32px; font-weight: 800; letter-spacing: -0.02em; }
