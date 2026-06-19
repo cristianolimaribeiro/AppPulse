@@ -36,6 +36,20 @@ const ApplicationDetails: React.FC = () => {
   const [loading, setLoading] = useState(true);
   const [activeTab, setActiveTab] = useState<'checks' | 'history' | 'incidents'>('checks');
 
+  const getStatusClass = (status: string) => {
+    if (status === 'resolved') return 'online';
+    if (status === 'investigating' || status === 'monitoring') return 'degraded';
+    return 'offline';
+  };
+
+  const getStatusLabel = (status: string) => {
+    if (status === 'open') return 'Aberto';
+    if (status === 'investigating') return 'Investigando';
+    if (status === 'monitoring') return 'Monitorando';
+    if (status === 'resolved') return 'Resolvido';
+    return status;
+  };
+
   useEffect(() => {
     fetchData();
   }, [id]);
@@ -121,7 +135,10 @@ const ApplicationDetails: React.FC = () => {
           </button>
           <div className="title-area">
             <h1>{app.name}</h1>
-            <span className={`badge badge-${app.current_status}`} role="status">{app.current_status}</span>
+            <div className="status-dot-container" role="status">
+              <span className={`status-dot ${app.current_status}`}></span>
+              <span style={{ color: `var(--status-${app.current_status})`, textTransform: 'capitalize' }}>{app.current_status}</span>
+            </div>
           </div>
         </div>
         <div className="header-actions">
@@ -258,7 +275,12 @@ const ApplicationDetails: React.FC = () => {
                   {checks.map(check => (
                     <tr key={check.id}>
                       <td>{new Date(check.checked_at).toLocaleString()}</td>
-                      <td><span className={`badge badge-${check.status}`}>{check.status}</span></td>
+                      <td>
+                        <div className="status-dot-container">
+                          <span className={`status-dot ${check.status}`}></span>
+                          <span style={{ color: `var(--status-${check.status})`, textTransform: 'capitalize' }}>{check.status}</span>
+                        </div>
+                      </td>
                       <td><code>{check.http_status_code || '-'}</code></td>
                       <td><strong>{check.response_time_ms ? `${check.response_time_ms}ms` : '-'}</strong></td>
                       <td className="error-cell" title={check.error_message || ''}>{check.error_message || '-'}</td>
@@ -284,8 +306,18 @@ const ApplicationDetails: React.FC = () => {
                   {history.map(h => (
                     <tr key={h.id}>
                       <td>{new Date(h.created_at).toLocaleString()}</td>
-                      <td><span className={`badge badge-${h.old_status}`}>{h.old_status}</span></td>
-                      <td><span className={`badge badge-${h.new_status}`}>{h.new_status}</span></td>
+                      <td>
+                        <div className="status-dot-container">
+                          <span className={`status-dot ${h.old_status}`}></span>
+                          <span style={{ color: `var(--status-${h.old_status})`, textTransform: 'capitalize' }}>{h.old_status}</span>
+                        </div>
+                      </td>
+                      <td>
+                        <div className="status-dot-container">
+                          <span className={`status-dot ${h.new_status}`}></span>
+                          <span style={{ color: `var(--status-${h.new_status})`, textTransform: 'capitalize' }}>{h.new_status}</span>
+                        </div>
+                      </td>
                       <td>{h.reason || 'Alteração detectada pelo monitor'}</td>
                     </tr>
                   ))}
@@ -320,10 +352,19 @@ const ApplicationDetails: React.FC = () => {
                     <tr key={i.id}>
                       <td>{new Date(i.started_at).toLocaleString()}</td>
                       <td><strong>{i.title}</strong></td>
-                      <td><span className={`badge badge-${i.severity}`}>{i.severity}</span></td>
-                      <td><span className="badge badge-unknown">{i.status}</span></td>
                       <td>
-                        <Link to={`/incidents/${i.id}/edit`} className="btn-text">Ver Detalhes</Link>
+                        <span className={`badge badge-${i.severity}`}>
+                          {i.severity}
+                        </span>
+                      </td>
+                      <td>
+                        <div className="status-dot-container">
+                          <span className={`status-dot ${getStatusClass(i.status)}`}></span>
+                          <span style={{ color: `var(--status-${getStatusClass(i.status)})` }}>{getStatusLabel(i.status)}</span>
+                        </div>
+                      </td>
+                      <td>
+                        <Link to={`/incidents/${i.id}/edit`} className="btn-text-premium">Detalhes <span>→</span></Link>
                       </td>
                     </tr>
                   ))}

@@ -220,17 +220,16 @@ select option {
 }
 
 .btn-success {
-  background: rgba(0, 230, 118, 0.05);
-  border: 1px solid var(--status-online);
-  color: var(--status-online);
+  background: var(--status-online);
+  color: white;
+  box-shadow: 0 4px 14px 0 var(--status-online-glow);
 }
 
 .btn-success:hover {
-  background: var(--status-online-glow);
-  transform: scale(1.02);
-  box-shadow: 0 4px 14px 0 var(--status-online-glow);
-  border-color: var(--text-dim);
+  background: #059669;
   color: white;
+  box-shadow: 0 6px 20px 0 rgba(16, 185, 129, 0.35);
+  transform: scale(1.02);
 }
 
 /* Tables */

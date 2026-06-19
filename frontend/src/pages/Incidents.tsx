@@ -35,6 +35,20 @@ const Incidents: React.FC = () => {
     return matchesSearch && matchesStatus;
   });
 
+  const getStatusClass = (status: string) => {
+    if (status === 'resolved') return 'online';
+    if (status === 'investigating' || status === 'monitoring') return 'degraded';
+    return 'offline';
+  };
+
+  const getStatusLabel = (status: string) => {
+    if (status === 'open') return 'Aberto';
+    if (status === 'investigating') return 'Investigando';
+    if (status === 'monitoring') return 'Monitorando';
+    if (status === 'resolved') return 'Resolvido';
+    return status;
+  };
+
   if (loading) return <div className="loading-container">Carregando incidentes...</div>;
 
   return (
@@ -84,28 +98,33 @@ const Incidents: React.FC = () => {
             </tr>
           </thead>
           <tbody>
-            {filteredIncidents.map((incident) => (
-              <tr key={incident.id}>
-                <td>{new Date(incident.started_at).toLocaleString()}</td>
-                <td><span className="app-name">{incident.application_name}</span></td>
-                <td>{incident.title}</td>
-                <td>
-                  <span className={`badge badge-${incident.severity}`}>
-                    {incident.severity}
-                  </span>
-                </td>
-                <td>
-                  <span className="badge badge-unknown">
-                    {incident.status}
-                  </span>
-                </td>
-                <td>
-                  <Link to={`/incidents/${incident.id}/edit`} className="btn-text">
-                    Ver Detalhes
-                  </Link>
-                </td>
-              </tr>
-            ))}
+            {filteredIncidents.map((incident) => {
+              const sClass = getStatusClass(incident.status);
+              const sLabel = getStatusLabel(incident.status);
+              return (
+                <tr key={incident.id}>
+                  <td>{new Date(incident.started_at).toLocaleString()}</td>
+                  <td><span className="app-name">{incident.application_name}</span></td>
+                  <td>{incident.title}</td>
+                  <td>
+                    <span className={`badge badge-${incident.severity}`}>
+                      {incident.severity}
+                    </span>
+                  </td>
+                  <td>
+                    <div className="status-dot-container">
+                      <span className={`status-dot ${sClass}`}></span>
+                      <span style={{ color: `var(--status-${sClass})` }}>{sLabel}</span>
+                    </div>
+                  </td>
+                  <td>
+                    <Link to={`/incidents/${incident.id}/edit`} className="btn-text-premium">
+                      Detalhes <span>→</span>
+                    </Link>
+                  </td>
+                </tr>
+              );
+            })}
             {filteredIncidents.length === 0 && (
               <tr>
                 <td colSpan={6}>

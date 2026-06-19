@@ -148,9 +148,12 @@ const Applications: React.FC = () => {
                 </td>
                 <td><span className="env-tag">{app.environment}</span></td>
                 <td>
-                  <span className={`badge badge-${app.current_status}`} role="status">
-                    {app.current_status}
-                  </span>
+                  <div className="status-dot-container" role="status">
+                    <span className={`status-dot ${app.current_status}`}></span>
+                    <span style={{ color: `var(--status-${app.current_status})`, textTransform: 'capitalize' }}>
+                      {app.current_status}
+                    </span>
+                  </div>
                 </td>
                 <td>
                   <span className={`badge badge-${app.criticality}`}>
