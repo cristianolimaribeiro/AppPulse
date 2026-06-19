@@ -159,8 +159,8 @@ const Dashboard: React.FC = () => {
           </div>
           <span className="stat-card-value">{data.incidents.open}</span>
           <div className="stat-card-footer">
-            <span style={{ color: parseInt(data.incidents.open) > 0 ? 'var(--status-offline)' : 'var(--text-dim)', fontSize: '11px', fontWeight: 600 }}>
-              {parseInt(data.incidents.open) > 0 ? 'Incidentes em aberto' : 'Sem incidentes ativos'}
+            <span style={{ color: data.incidents.open > 0 ? 'var(--status-offline)' : 'var(--text-dim)', fontSize: '11px', fontWeight: 600 }}>
+              {data.incidents.open > 0 ? 'Incidentes em aberto' : 'Sem incidentes ativos'}
             </span>
           </div>
         </div>
