@@ -37,6 +37,12 @@
 .logo-icon {
   color: var(--primary);
   filter: drop-shadow(0 0 8px var(--primary-glow));
+  animation: logo-pulse 4s infinite ease-in-out;
+}
+
+@keyframes logo-pulse {
+  0%, 100% { transform: scale(1); filter: drop-shadow(0 0 6px var(--primary-glow)); }
+  50% { transform: scale(1.06); filter: drop-shadow(0 0 14px rgba(59, 130, 246, 0.4)); }
 }
 
 .header-right {
@@ -108,24 +114,25 @@
   display: flex;
   align-items: center;
   gap: 14px;
-  padding: 14px 16px;
-  border-radius: 12px;
+  padding: 14px 20px;
   color: var(--text-muted);
   font-weight: 600;
   font-size: 15px;
+  border-left: 3px solid transparent;
   transition: var(--transition-smooth);
 }
 
 .nav-item:hover {
-  background: var(--border);
+  background: transparent;
   color: var(--text-main);
   transform: translateX(4px);
 }
 
 .nav-item.active {
-  background: var(--primary);
-  color: white;
-  box-shadow: 0 4px 12px var(--primary-glow);
+  background: rgba(59, 130, 246, 0.05);
+  color: #ffffff;
+  border-left: 3px solid var(--primary);
+  box-shadow: none;
 }
 
 .content {
