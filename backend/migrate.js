@@ -12,7 +12,6 @@ if (!connectionString) {
 async function runMigration() {
   console.log('Iniciando conexão com o banco de dados remoto...');
   
-  // Conexão segura exigida pela Render
   const client = new Client({
     connectionString: connectionString,
     ssl: {
@@ -24,6 +23,11 @@ async function runMigration() {
     await client.connect();
     console.log('Conectado com sucesso ao PostgreSQL na Render!');
 
+    // Criar e definir o schema isolado
+    console.log('Garantindo existência do schema "apppulse"...');
+    await client.query('CREATE SCHEMA IF NOT EXISTS apppulse;');
+    await client.query('SET search_path TO apppulse;');
+
     // Carregar schema e seed
     const schemaPath = path.join(__dirname, '../database/schema.sql');
     const seedPath = path.join(__dirname, '../database/seed.sql');
@@ -34,7 +38,7 @@ async function runMigration() {
     console.log(`Lendo arquivo de Seed: ${seedPath}`);
     const seedSql = fs.readFileSync(seedPath, 'utf8');
 
-    console.log('Executando criação do schema...');
+    console.log('Executando criação do schema (tabelas)...');
     await client.query(schemaSql);
     console.log('Schema criado com sucesso!');
 
