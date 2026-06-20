@@ -1,8 +1,8 @@
--- Senha para todos: 123456 (hash bcrypt: $2a$10$tZ/nB8j3QG99.K8r/5.s8OIfG5E.p.gK2qO9/TfQ1I9L7Vd6T9t8G)
+-- Senha para todos: 123456 (hash bcrypt: $2a$10$2vJDZcF3PtAkzRgPHs2giOTUdnhaHUb8MuuLRXjJcyAfaHcrJglzC)
 INSERT INTO ap_users (name, email, password_hash, role, active) VALUES
-('Admin User', 'admin@apppulse.com', '$2a$10$tZ/nB8j3QG99.K8r/5.s8OIfG5E.p.gK2qO9/TfQ1I9L7Vd6T9t8G', 'admin', true),
-('Operador', 'operador@apppulse.com', '$2a$10$tZ/nB8j3QG99.K8r/5.s8OIfG5E.p.gK2qO9/TfQ1I9L7Vd6T9t8G', 'operator', true),
-('Visualizador', 'viewer@apppulse.com', '$2a$10$tZ/nB8j3QG99.K8r/5.s8OIfG5E.p.gK2qO9/TfQ1I9L7Vd6T9t8G', 'viewer', true)
+('Admin User', 'admin@apppulse.com', '$2a$10$2vJDZcF3PtAkzRgPHs2giOTUdnhaHUb8MuuLRXjJcyAfaHcrJglzC', 'admin', true),
+('Operador', 'operador@apppulse.com', '$2a$10$2vJDZcF3PtAkzRgPHs2giOTUdnhaHUb8MuuLRXjJcyAfaHcrJglzC', 'operator', true),
+('Visualizador', 'viewer@apppulse.com', '$2a$10$2vJDZcF3PtAkzRgPHs2giOTUdnhaHUb8MuuLRXjJcyAfaHcrJglzC', 'viewer', true)
 ON CONFLICT (email) DO NOTHING;
 
 INSERT INTO ap_applications (name, description, url, environment, criticality, expected_status_code, timeout_ms, check_interval_minutes, monitoring_enabled, current_status) VALUES
